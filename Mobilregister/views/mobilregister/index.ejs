@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate')%> 
+
+<h1 class="text-center">Mobilregister</h1>
+
+
+<div class="row">
+    <h2 class="text-center">Lägg till nytt mobilnummer</h1>
+    <div class="col-6 offset-3">
+        <form action="/" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="title">Namn</label>
+                <input class="form-control" type="text" id="name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Nummer</label>
+                <input class="form-control" type="text" id="number">
+            </div>
+           
+            <div class="mb-3">
+                <label class="form-label" for="model">Modell</label>
+                <textarea class="form-control" type="text" id="model""></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Lägg till</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Namn</th>
+                    <th scope="col">Telefonnummer</th>
+                    <th scope="col">Modell</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let user of users) { %> 
+                    <tr scope="row">
+                        <td><%= user.name %></td>
+                        <td><%=user.number %></td>
+                        <td><%=user.model%> </td>
+                    </tr>
+                    <%  } %> 
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
