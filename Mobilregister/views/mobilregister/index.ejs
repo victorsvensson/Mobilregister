@@ -2,23 +2,21 @@
 
 <h1 class="text-center">Mobilregister</h1>
 
-
 <div class="row">
-    <h2 class="text-center">Lägg till nytt mobilnummer</h1>
+    <h2 class="text-center">Lägg till ny användare</h1>
     <div class="col-6 offset-3">
-        <form action="/" method="POST">
+        <form action="/mobilregister" method="POST">
             <div class="mb-3">
-                <label class="form-label" for="title">Namn</label>
-                <input class="form-control" type="text" id="name">
+                <label class="form-label" for="name">Namn</label>
+                <input class="form-control" type="text" id="name" name="name">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="location">Nummer</label>
-                <input class="form-control" type="text" id="number">
+                <label class="form-label" for="number">Nummer</label>
+                <input class="form-control" type="number" id="number" name="number">
             </div>
-           
             <div class="mb-3">
                 <label class="form-label" for="model">Modell</label>
-                <textarea class="form-control" type="text" id="model""></textarea>
+                <textarea class="form-control" type="text" id="model" name="model"></textarea>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Lägg till</button>
@@ -35,14 +33,24 @@
                     <th scope="col">Namn</th>
                     <th scope="col">Telefonnummer</th>
                     <th scope="col">Modell</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(let user of users) { %> 
                     <tr scope="row">
-                        <td><%= user.name %></td>
+                        <td><%=user.name %></td>
                         <td><%=user.number %></td>
                         <td><%=user.model%> </td>
+                        <td>
+                            <form class="d-inline" action="/mobilregister/<%=user.id%>?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-info">EDIT</button>
+                            </form>
+                            <form class="d-inline" action="/mobilregister/<%=user.id%>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                        
                     </tr>
                     <%  } %> 
             </tbody>

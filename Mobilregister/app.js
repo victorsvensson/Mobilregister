@@ -22,11 +22,32 @@ app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method")); //used to PUT, normally you can just get and post
 app.engine("ejs", ejsMate);
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //Need to be used to be able to POST
+
+app.get("/", (req, res) => {
+    res.redirect("/mobilregister");
+});
 
 app.get("/mobilregister", async (req, res) => {
     const users = await User.find({});
     res.render("mobilregister/index", { users });
+});
+
+app.post("/mobilregister", async (req, res) => {
+    const newUser = new User(req.body);
+    await newUser.save();
+    console.log(newUser);
+    res.redirect("/mobilregister");
+});
+
+app.delete("/mobilregister/:id", async (req, res) => {
+    await User.findByIdAndDelete(req.params.id);
+    res.redirect("/");
+});
+
+app.put("/mobilregister/:id", async (req, res) => {
+    await User.findByIdAndUpdate(req.params.id);
+    res.redirect("/");
 });
 
 app.listen(3000, () => {
