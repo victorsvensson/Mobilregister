@@ -2,27 +2,17 @@
 
 <h1 class="text-center">Mobilregister</h1>
 
+<a class="btn btn-primary" href="/mobilregister/new" role="button">Ny användare</a>
 <div class="row">
-    <h2 class="text-center">Lägg till ny användare</h1>
-    <div class="col-6 offset-3">
-        <form action="/mobilregister" method="POST">
+    
+    <form action="/mobilregister/" method="POST">
+        <div class="col-6 offset-3">
             <div class="mb-3">
-                <label class="form-label" for="name">Namn</label>
-                <input class="form-control" type="text" id="name" name="name">
+                <label class="form-label" for="name">Sök</label>
+                <input class="form-control" type="text" id="search" name="search">
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="number">Nummer</label>
-                <input class="form-control" type="number" id="number" name="number">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="model">Modell</label>
-                <textarea class="form-control" type="text" id="model" name="model"></textarea>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-success">Lägg till</button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 <div class="row">
@@ -43,7 +33,7 @@
                         <td><%=user.number %></td>
                         <td><%=user.model%> </td>
                         <td>
-                            <form class="d-inline" action="/mobilregister/<%=user.id%>?_method=PUT" method="POST">
+                            <form class="d-inline" action="/mobilregister/<%=user.id%>/edit">
                                 <button type="submit" class="btn btn-info">EDIT</button>
                             </form>
                             <form class="d-inline" action="/mobilregister/<%=user.id%>?_method=DELETE" method="POST">

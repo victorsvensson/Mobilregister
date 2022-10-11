@@ -6,6 +6,8 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 
 const User = require("./models/user");
+const e = require("express");
+const { findByIdAndUpdate } = require("./models/user");
 
 //Connect to database
 main().catch((err) => console.log(err));
@@ -33,7 +35,11 @@ app.get("/mobilregister", async (req, res) => {
     res.render("mobilregister/index", { users });
 });
 
-app.post("/mobilregister", async (req, res) => {
+app.get("/mobilregister/new", (req, res) => {
+    res.render("mobilregister/new");
+});
+
+app.post("/mobilregister/new", async (req, res) => {
     const newUser = new User(req.body);
     await newUser.save();
     console.log(newUser);
@@ -45,9 +51,17 @@ app.delete("/mobilregister/:id", async (req, res) => {
     res.redirect("/");
 });
 
-app.put("/mobilregister/:id", async (req, res) => {
-    await User.findByIdAndUpdate(req.params.id);
-    res.redirect("/");
+app.get("/mobilregister/:id/edit", async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.render("mobilregister/edit", { user });
+});
+
+app.put("/mobilregister/:id/", async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findByIdAndUpdate(id, {
+        ...req.body.mobilregister,
+    });
+    res.redirect("/mobilregister");
 });
 
 app.listen(3000, () => {

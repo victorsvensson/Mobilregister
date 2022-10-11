@@ -3,23 +3,24 @@
 <h1 class="text-center">Mobilregister</h1>
 
 <div class="row">
-    <h2 class="text-center">Lägg till nytt mobilnummer</h1>
+    <h2 class="text-center">Redigera användare</h1>
     <div class="col-6 offset-3">
-        <form action="/mobilregister" method="POST">
+        <form action="/mobilregister/<%=user.id%>?_method=PUT" method="POST">
             <div class="mb-3">
                 <label class="form-label" for="name">Namn</label>
-                <input class="form-control" type="text" id="name" name="name">
+                <input class="form-control" type="text" id="name" name="mobilregister[name]" value="<%=user.name%>">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="number">Nummer</label>
-                <input class="form-control" type="number" id="number" name="number">
+                <input class="form-control" type="number" id="number" name="mobilregister[number]" value="<%=user.number%>">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="model">Modell</label>
-                <textarea class="form-control" type="text" id="model" name="model"></textarea>
+                <input class="form-control" type="text" id="model" name="mobilregister[model]" value="<%=user.model%>">
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Lägg till</button>
+                <a class="btn btn-danger" href="/mobilregister/" role="button">Avbryt</a>
             </div>
         </form>
     </div>
