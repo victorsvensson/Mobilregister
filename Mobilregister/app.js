@@ -42,7 +42,6 @@ app.post("/mobilregister", async (req, res) => {
     const searchResults = await User.find({
         name: { $regex: new RegExp("^" + search + ".*", "i") },
     }).exec();
-    res.render("mobilregister/searchResults", { searchResults });
 });
 
 //Create a new user page
