@@ -29,12 +29,23 @@ app.use(express.urlencoded({ extended: true })); //Need to be used to be able to
 app.get("/", (req, res) => {
     res.redirect("/mobilregister");
 });
-
+//Homepage
 app.get("/mobilregister", async (req, res) => {
     const users = await User.find({});
     res.render("mobilregister/index", { users });
 });
 
+app.post("/mobilregister", async (req, res) => {
+    const search = req.body.search.trim();
+    console.log(search);
+    //const searchResults = await User.find({ name: search });
+    const searchResults = await User.find({
+        name: { $regex: new RegExp("^" + search + ".*", "i") },
+    }).exec();
+    res.render("mobilregister/searchResults", { searchResults });
+});
+
+//Create a new user page
 app.get("/mobilregister/new", (req, res) => {
     res.render("mobilregister/new");
 });

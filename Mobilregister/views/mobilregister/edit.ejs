@@ -8,15 +8,15 @@
         <form action="/mobilregister/<%=user.id%>?_method=PUT" method="POST">
             <div class="mb-3">
                 <label class="form-label" for="name">Namn</label>
-                <input class="form-control" type="text" id="name" name="mobilregister[name]" value="<%=user.name%>">
+                <input class="form-control" type="text" id="name" name="mobilregister[name]" value="<%=user.name%>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="number">Nummer</label>
-                <input class="form-control" type="number" id="number" name="mobilregister[number]" value="<%=user.number%>">
+                <input class="form-control" type="number" id="number" name="mobilregister[number]" value="<%=user.number%>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="model">Modell</label>
-                <input class="form-control" type="text" id="model" name="mobilregister[model]" value="<%=user.model%>">
+                <input class="form-control" type="text" id="model" name="mobilregister[model]" value="<%=user.model%>" required>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Lägg till</button>

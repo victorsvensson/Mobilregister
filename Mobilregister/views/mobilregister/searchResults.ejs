@@ -6,11 +6,12 @@
 
 <div class="row">
     
+    
     <form action="/mobilregister/" method="POST">
         <div class="col-6 offset-3">
             <div class="mb-3">
                 <label class="form-label" for="name">Sök</label>
-                <input class="form-control" type="text" id="search" name="search" >
+                <input class="form-control" type="text" id="search" name="search" ><a class="btn btn-primary" href="/mobilregister/" role="button">Rensa</a>
             </div>
         </div>
     </form>
@@ -28,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% for(let user of users) { %> 
+                <% for(let user of searchResults) { %> 
                     <tr scope="row">
                         <td><%=user.name %></td>
                         <td><%=user.number %></td>
@@ -41,7 +42,6 @@
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-
                         
                     </tr>
                     <%  } %> 
@@ -49,12 +49,5 @@
         </table>
     </div>
 </div>
-
-<script>
-    function test(val){
-        alert(val);
-    }
-
-</script>
 
 

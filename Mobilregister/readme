@@ -1,0 +1,1 @@
+<button type="button" onclick="test('<%=user.id%>')">Click me!!</button>

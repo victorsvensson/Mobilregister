@@ -5,19 +5,20 @@
     <div class="col-6 offset-3">
         <form action="/mobilregister/new" method="POST">
             <div class="mb-3">
-                <label class="form-label" for="name">Namn</label>
-                <input class="form-control" type="text" id="name" name="name">
+                <label class="form-label" for="name">Namn *</label>
+                <input class="form-control" type="text" id="name" name="name" required>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="number">Nummer</label>
-                <input class="form-control" type="number" id="number" name="number">
+                <label class="form-label" for="number">Nummer *</label>
+                <input class="form-control" type="number" id="number" name="number" required>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="model">Modell</label>
-                <textarea class="form-control" type="text" id="model" name="model"></textarea>
+                <label class="form-label" for="model">Modell *</label>
+                <textarea class="form-control" type="text" id="model" name="model" required></textarea>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Lägg till</button>
+                <a class="btn btn-danger" href="/mobilregister/" role="button">Avbryt</a>
             </div>
         </form>
     </div>
