@@ -14,7 +14,11 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="model">Modell *</label>
-                <textarea class="form-control" type="text" id="model" name="model" required></textarea>
+                <select name="model" type="text" id="model" name="model">
+                  <% for(let phone of phones) { %> 
+                    <option value="<%=phone.name%>"><%=phone.name%></option>
+                    <%  } %> 
+                </select>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Lägg till</button>

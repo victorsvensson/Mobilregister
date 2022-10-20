@@ -14,7 +14,30 @@
             </div>
         </form>
     </div>
-    <tbody>
 
-    </tbody>
+
+
+    <div class="row">
+        <div class="col-6 offset-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Namn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let phone of phones) { %> 
+                        <tr scope="row">
+                            <td><%=phone.name %></td>
+                            <td>
+                                <form class="d-inline" action="/mobilregister/addPhone/<%=phone.id%>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger">Ta bort</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <%  } %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

@@ -15,15 +15,14 @@
                 <input class="form-control" type="number" id="number" name="mobilregister[number]" value="<%=user.number%>" required>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="model">Modell</label>
-                <input class="form-control" type="text" id="model" name="mobilregister[model]" value="<%=user.model%>" required>
-            </div>
-            <div class="mb-3">
-                    <label for="status" id="status" name="status">Status:</label>
-                    <select name="mobilregister[status]" id="status">
-                      <option value="Hos användare">Hos användare</option>
-                      <option value="Inlämnad hos IT">Inlämnad hos IT</option>
-                    </select>
+                <p>Current Phone: <%=user.model%></p>
+                <label class="form-label" for="model">Modell *</label>
+                <select name="mobilregister[model]" type="text" id="model">
+                  <% for(let phone of phones) { %> 
+
+                    <option value="<%=phone.name%>"><%=phone.name%> </option>
+                    <%  } %> 
+                </select>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Uppdatera</button>
