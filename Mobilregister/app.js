@@ -9,6 +9,8 @@ const User = require("./models/user");
 const e = require("express");
 const { findByIdAndUpdate } = require("./models/user");
 
+const PhoneModel = require("./models/phoneModels");
+
 //Connect to database
 main().catch((err) => console.log(err));
 
@@ -38,7 +40,6 @@ app.get("/mobilregister", async (req, res) => {
 app.post("/mobilregister", async (req, res) => {
     const search = req.body.search.trim();
     console.log(search);
-    //const searchResults = await User.find({ name: search });
     const searchResults = await User.find({
         name: { $regex: new RegExp("^" + search + ".*", "i") },
     }).exec();
@@ -51,8 +52,8 @@ app.get("/mobilregister/new", (req, res) => {
 
 app.post("/mobilregister/new", async (req, res) => {
     const newUser = new User(req.body);
-    await newUser.save();
     console.log(newUser);
+    await newUser.save();
     res.redirect("/mobilregister");
 });
 
@@ -61,6 +62,7 @@ app.delete("/mobilregister/:id", async (req, res) => {
     res.redirect("/");
 });
 
+//Edit user
 app.get("/mobilregister/:id/edit", async (req, res) => {
     const user = await User.findById(req.params.id);
     res.render("mobilregister/edit", { user });
@@ -71,7 +73,22 @@ app.put("/mobilregister/:id/", async (req, res) => {
     const user = await User.findByIdAndUpdate(id, {
         ...req.body.mobilregister,
     });
+    console.log(req.body.mobilregister);
     res.redirect("/mobilregister");
+});
+
+//New phone
+app.get("/mobilregister/addPhone", async (req, res) => {
+    const phones = await PhoneModel.find({});
+    console.log(phones);
+    res.render("mobilregister/addPhone", { phones });
+});
+
+app.post("/mobilregister/addPhone", async (req, res) => {
+    const newPhone = new PhoneModel(req.body);
+    console.log(newPhone.modelName);
+    // console.log(newPhone);
+    // res.redirect("/mobilregister");
 });
 
 app.listen(3000, () => {

@@ -3,6 +3,7 @@
 <h1 class="text-center">Mobilregister</h1>
 
 <a class="btn btn-primary" href="/mobilregister/new" role="button">Ny användare</a>
+<a class="btn btn-primary" href="/mobilregister/addPhone" role="button">Ny telefonmodell</a>
 
 <div class="row">
     
@@ -17,13 +18,14 @@
 </div>
 
 <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-8 offset-2">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Namn</th>
                     <th scope="col">Telefonnummer</th>
                     <th scope="col">Modell</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -33,12 +35,13 @@
                         <td><%=user.name %></td>
                         <td><%=user.number %></td>
                         <td><%=user.model%> </td>
+                        <td><%=user.status%></td>
                         <td>
                             <form class="d-inline" action="/mobilregister/<%=user.id%>/edit">
-                                <button type="submit" class="btn btn-info">EDIT</button>
+                                <button type="submit" class="btn btn-info">Redigera</button>
                             </form>
                             <form class="d-inline" action="/mobilregister/<%=user.id%>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Ta bort</button>
                             </form>
                         </td>
 

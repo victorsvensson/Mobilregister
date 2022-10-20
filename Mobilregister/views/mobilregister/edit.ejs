@@ -19,6 +19,13 @@
                 <input class="form-control" type="text" id="model" name="mobilregister[model]" value="<%=user.model%>" required>
             </div>
             <div class="mb-3">
+                    <label for="status" id="status" name="status">Status:</label>
+                    <select name="mobilregister[status]" id="status">
+                      <option value="Hos användare">Hos användare</option>
+                      <option value="Inlämnad hos IT">Inlämnad hos IT</option>
+                    </select>
+            </div>
+            <div class="mb-3">
                 <button class="btn btn-success">Uppdatera</button>
                 <a class="btn btn-danger" href="/mobilregister/" role="button">Avbryt</a>
             </div>
