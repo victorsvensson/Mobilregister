@@ -1,24 +1,28 @@
 <% layout('layouts/boilerplate')%> 
 
-<h1 class="text-center">Mobilregister</h1>
 
-<a class="btn btn-primary" href="/mobilregister/new" role="button">Ny användare</a>
-<a class="btn btn-primary" href="/mobilregister/addPhone" role="button">Ny telefonmodell</a>
+<div class="b-example-divider"></div>
 
 <div class="row">
-    
-    <form action="/mobilregister/" method="POST">
-        <div class="col-6 offset-3">
-            <div class="mb-3">
-                <label class="form-label" for="name">Sök</label>
-                <input class="form-control" type="text" id="search" name="search" >
-            </div>
+    <nav class="navbar navbar-expand text-bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light">MOBILREGISTER</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="btn btn-success mx-2" class="nav-link" href="/mobilregister/new" role="button">Ny användare</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-success" href="/mobilregister/addPhone" role="button">Ny telefonmodell</a>
+                  </li>
+                </ul>
+              </div>
+            <form action="/mobilregister" method="POST" class="d-flex" role="search">
+            <input class="form-control me-2" for="name" type="text" id="search" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+            </form>
         </div>
-    </form>
-</div>
-
-<div class="row">
-    <div class="col-8 offset-2">
+    </nav>
         <table class="table">
             <thead>
                 <tr>
