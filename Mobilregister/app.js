@@ -86,7 +86,9 @@ app.get("/mobilregister/addPhone", async (req, res) => {
 });
 
 app.post("/mobilregister/addPhone", async (req, res) => {
+    console.log(req.body);
     const newPhone = new PhoneModel(req.body);
+    console.log(newPhone);
     await newPhone.save();
     res.redirect("/mobilregister/addPhone");
 });
