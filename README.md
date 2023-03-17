@@ -8,6 +8,16 @@ This project is a mobile registry which is a database of where you can see which
 ![image](https://user-images.githubusercontent.com/80740775/226069498-a05e4d1f-18b4-4f1e-9944-995175a5ddf6.png)
 
 
+## This project has the following functionality
+
+- Add, Remove and edit phone models
+- On first page it has following functionality:
+- Button to add a new user
+- Button to add a new phone model
+- Search for a user (by name)
+- See list of a users Name, Phone number, Phone model. An edit button to edit a users information, and also if you want to remove a user. When you remove a user it will prompt before delete.
+- 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
